@@ -1,7 +1,7 @@
 mkdir ~/software
 cd ~/software
-git clone --recursive-submodules https://github.com/astropeak/emacs.d.git
-git clone --recursive-submodules https://github.com/astropeak/myelpa.git
-
+git clone --recurse-submodules https://github.com/astropeak/emacs.d
+git clone https://github.com/astropeak/myelpa
+git clone https://github.com/astropeak/aspk-code-base
 
 
