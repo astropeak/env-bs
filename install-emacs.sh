@@ -3,7 +3,14 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-install_dir=$1
+
+abspath (){
+   echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
+}
+
+# install_dir=$(abspath $1)
+install_dir=`abspath $1`
+echo "install directory: $install_dir"
 
 if [ ! -d $install_dir ]; then
     mkdir -p $install_dir
@@ -29,6 +36,3 @@ cat >$dotemacs <<EOL
 (package-initialize)
 (load-file "${install_dir}/emacs.d/init.el")
 EOL
-
-
-

@@ -1,0 +1,3 @@
+# use \C-w as prefix key(the default one is \C-a)
+# http://aperiodic.net/screen/interface
+escape ^ww
