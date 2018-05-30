@@ -1,3 +1,6 @@
+echo "This script doesn't work now!\n"
+exit 1
+
 # This script will install the latest version of git
 if [ -z "$1" ]; then
     echo "Please call '$0 INSTALL_DIR' to run this command!\n"
