@@ -1,24 +1,12 @@
 # This script will install the latest version of git
-if [ -z "$1" ]; then
-    echo "Please call '$0 INSTALL_DIR' to run this command!\n"
-    exit 1
-fi
 
+# in this script, build_dir and install_dir will be set
+. "$(dirname $0)"/base.sh
 
-abspath (){
-   echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
-}
-
-# install_dir=$(abspath $1)
-install_dir=`abspath $1`
-echo "install directory: $install_dir"
-
-cd $install_dir
-
+cd $build_dir
 git clone https://github.com/git/git
-
 cd git
 make configure
-./configure --prefix=`pwd`/git-install
+./configure --prefix=$install_dir
 make all doc info
-sudo make install install-doc install-html install-info
+make install install-doc install-html install-info

@@ -1,21 +1,5 @@
-if [ -z "$1" ]; then
-    echo "Please call '$0 INSTALL_DIR' to run this command!\n"
-    exit 1
-fi
-
-
-abspath (){
-   echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
-}
-
-# install_dir=$(abspath $1)
-install_dir=`abspath $1`
-echo "install directory: $install_dir"
-
-if [ ! -d $install_dir ]; then
-    mkdir -p $install_dir
-    echo "Making directory: ${install_dir}"
-fi
+# in this script, build_dir and install_dir will be set
+. "$(dirname $0)"/base.sh
 
 cd $install_dir
 git clone --recursive https://github.com/astropeak/emacs.d
